@@ -81,3 +81,13 @@ equalButton.addEventListener("click", () => {
 
     shouldResetDisplay = true;
 });
+
+const percentButton = document.querySelector("#percent");
+percentButton.addEventListener("click",()=>{
+    if(display != ''){
+        +display;
+        display /=100;
+        display.toString();
+        displayScreen.textContent = display;
+    }
+})
