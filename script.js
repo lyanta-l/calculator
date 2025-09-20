@@ -85,12 +85,12 @@ equalButton.addEventListener("click", () => {
 
 const percentButton = document.querySelector("#percent");
 percentButton.addEventListener("click", () => {
-    if (display === '') return; 
+    if (display === '') return;
 
     let currentValue = parseFloat(display);
     let percentValue = currentValue / 100;
 
-    display = percentValue.toString(); 
+    display = percentValue.toString();
     displayScreen.textContent = display;
 });
 
@@ -117,4 +117,22 @@ delButton.addEventListener("click", () => {
         displayScreen.textContent = '0';
     }
 
+});
+const dotButton = document.querySelector(".dot");
+dotButton.addEventListener("click", () => {
+    //如果显示被重置了，先输入 "0."
+    if (shouldResetDisplay) {
+        display = '0.';
+        shouldResetDisplay = false;
+    } else {
+        //如果 display 已经是空的，也输入 "0."
+        if (display === '') {
+            display = '0.';
+        }
+        //如果 display 中还不包含小数点
+        else if (!display.includes('.')) {
+            display += '.';
+        }
+    }
+    displayScreen.textContent = display;
 });
