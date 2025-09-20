@@ -74,7 +74,8 @@ equalButton.addEventListener("click", () => {
     if (last === '' || operator === '') return;
     if (shouldResetDisplay) return;
     let next = display;
-    last = operate(operator, last, next);
+    let result = operate(operator, last, next);
+    last = result.toString();
     displayScreen.textContent = last;
     display = last;
     operator = '';
@@ -84,13 +85,14 @@ equalButton.addEventListener("click", () => {
 
 const percentButton = document.querySelector("#percent");
 percentButton.addEventListener("click", () => {
-    if (display != '') {
-        +display;
-        display /= 100;
-        display.toString();
-        displayScreen.textContent = display;
-    }
-})
+    if (display === '') return; 
+
+    let currentValue = parseFloat(display);
+    let percentValue = currentValue / 100;
+
+    display = percentValue.toString(); 
+    displayScreen.textContent = display;
+});
 
 const clearButton = document.querySelector(".ac");
 clearButton.addEventListener("click", () => {
@@ -98,7 +100,7 @@ clearButton.addEventListener("click", () => {
     displayScreen.textContent = '0';
     last = '';
     operator = '';
-})
+});
 
 const delButton = document.querySelector(".c");
 delButton.addEventListener("click", () => {
@@ -115,4 +117,4 @@ delButton.addEventListener("click", () => {
         displayScreen.textContent = '0';
     }
 
-})
+});
