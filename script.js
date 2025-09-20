@@ -72,7 +72,7 @@ operatorButtons.forEach(button => {
 const equalButton = document.querySelector(".equal");
 equalButton.addEventListener("click", () => {
     if (last === '' || operator === '') return;
-    if(shouldResetDisplay) return;
+    if (shouldResetDisplay) return;
     let next = display;
     last = operate(operator, last, next);
     displayScreen.textContent = last;
@@ -83,19 +83,36 @@ equalButton.addEventListener("click", () => {
 });
 
 const percentButton = document.querySelector("#percent");
-percentButton.addEventListener("click",()=>{
-    if(display != ''){
+percentButton.addEventListener("click", () => {
+    if (display != '') {
         +display;
-        display /=100;
+        display /= 100;
         display.toString();
         displayScreen.textContent = display;
     }
 })
 
 const clearButton = document.querySelector(".ac");
-clearButton.addEventListener("click",()=>{
+clearButton.addEventListener("click", () => {
     display = '';
     displayScreen.textContent = '0';
     last = '';
     operator = '';
+})
+
+const delButton = document.querySelector(".c");
+delButton.addEventListener("click", () => {
+    if (display === '') {
+        displayScreen.textContent = '0';
+        return;
+    }
+    let array = display.split('');
+    array.pop();
+    display = array.join('');
+    if (display != '') {
+        displayScreen.textContent = display;
+    } else {
+        displayScreen.textContent = '0';
+    }
+
 })
