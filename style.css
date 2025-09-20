@@ -9,16 +9,27 @@
 .display {
     background-color: white;
     height: 80px;
-}
-.button-container {
-   padding: 5px;
-   text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    box-sizing: border-box;
 
 }
+
+.button-container {
+    padding: 5px;
+    text-align: center;
+
+}
+
 button {
     width: 80px;
     height: 70px;
 }
+
 button.equal {
     width: 164px;
 }
