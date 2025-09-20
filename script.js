@@ -91,3 +91,11 @@ percentButton.addEventListener("click",()=>{
         displayScreen.textContent = display;
     }
 })
+
+const clearButton = document.querySelector(".ac");
+clearButton.addEventListener("click",()=>{
+    display = '';
+    displayScreen.textContent = '0';
+    last = '';
+    operator = '';
+})
